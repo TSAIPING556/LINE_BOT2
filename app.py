@@ -203,26 +203,23 @@ def handle_image_message(event):
 def handle_message(event):
        
     msg = event.message.text
-    if msg[0:2]=='習題':
-        try:
-            QA_answer = QA_response(msg)
-            print(QA_answer)
-            if QA_answer!='No good match found in KB':
-                line_bot_api.reply_message(event.reply_token, TextSendMessage(QA_answer))
-        except:
-            print(traceback.format_exc())
-            line_bot_api.reply_message(event.reply_token, TextSendMessage('QA Error'))
     
-    elif msg[0]=='!':
+    if msg[0]=='!':
         try:
             gpt_answer = Chatgpt_response(msg)
             print(gpt_answer)
-            #position = gpt_answer.find('\n\n')
-            # Access the second non-empty line (index 2) and get the characters
             line_bot_api.reply_message(event.reply_token, TextSendMessage(gpt_answer))
         except:
             print(traceback.format_exc())
-            line_bot_api.reply_message(event.reply_token, TextSendMessage('Please retry later'))                
+            line_bot_api.reply_message(event.reply_token, TextSendMessage('Please retry later'))       
+    else:
+        try:
+            QA_answer = QA_response(msg)
+            print(QA_answer)        
+            line_bot_api.reply_message(event.reply_token, TextSendMessage(QA_answer))
+        except:
+            print(traceback.format_exc())
+            line_bot_api.reply_message(event.reply_token, TextSendMessage('QA Error'))
 
 
 @handler.add(PostbackEvent)
