@@ -1,8 +1,7 @@
-Flask
-openai
-azure-cognitiveservices-vision-computervision
-azure-ai-language-questionanswering
-msrest
-Pillow
 line-bot-sdk
+flask
+openai
 gunicorn
+azure-ai-language-questionanswering
+azure-cognitiveservices-vision-computervision
+pillow
