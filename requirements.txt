@@ -1,8 +1,7 @@
-line-bot-sdk
 Flask
 openai
 azure-cognitiveservices-vision-computervision
-azure-ai-language
+azure-ai-language-questionanswering
 msrest
 Pillow
 line-bot-sdk
