@@ -1,4 +1,9 @@
 line-bot-sdk
-flask
+Flask
+openai
+azure-cognitiveservices-vision-computervision
+azure-ai-language
+msrest
+Pillow
+line-bot-sdk
 gunicorn
-azure-ai-language-questionanswering
